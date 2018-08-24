@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 
@@ -11,6 +13,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ShopComponent } from './shop/shop.component';
+import { AddNewsComponent } from './add-news/add-news.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,16 @@ import { ShopComponent } from './shop/shop.component';
     CustomerComponent,
     CustomerDetailsComponent,
     AddCustomerComponent,
-    ShopComponent
+    ShopComponent,
+    AddNewsComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

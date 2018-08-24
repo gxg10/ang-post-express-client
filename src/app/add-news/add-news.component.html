@@ -1,0 +1,13 @@
+       <h3>Send us your Feedback</h3>
+
+        <form novalidate [formGroup]="stiriForm" #modstiri="ngForm" (ngSubmit)="onSubmit()">
+          <p>
+              <input  formControlName="titlu" placeholder="Titlu" type="text" required>
+            </p>
+              <textarea  formControlName="continut" rows=12></textarea>
+          <button type="submit" 
+          [disabled]="stiriForm.invalid">Submit</button>
+         </form>
+         
+
+          
