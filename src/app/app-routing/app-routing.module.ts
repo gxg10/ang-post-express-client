@@ -6,14 +6,20 @@ import { CustomerDetailsComponent } from '../customer-details/customer-details.c
 import { ShopComponent } from '../shop/shop.component';
 import { AddNewsComponent } from '../add-news/add-news.component';
 import { NewsComponent } from '../news/news.component';
+import { HomeComponent } from '../home/home.component';
 
 import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent
+  },
    { 
      path: 'customers', 
      component: CustomerComponent 
    },
+
    { 
      path: 'customer/add', 
      component: AddCustomerComponent 

@@ -15,6 +15,7 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ShopComponent } from './shop/shop.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { NewsComponent } from './news/news.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewsComponent } from './news/news.component';
     AddCustomerComponent,
     ShopComponent,
     AddNewsComponent,
-    NewsComponent
+    NewsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
