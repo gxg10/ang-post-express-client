@@ -22,3 +22,9 @@
           </div>
         </ng-template>
 </ngb-carousel>
+<div class="up">
+  <input id="file" type="file"/>
+  <button type="button" class="btn btn-success btn-s" (change)="handleFileInput($event.target.files)">
+    Upload
+  </button>
+</div>
