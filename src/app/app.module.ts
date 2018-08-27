@@ -20,6 +20,8 @@ import { HomeComponent } from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { baseUrl } from './baseurl';
+import { IntroComponent } from './intro/intro.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -32,7 +34,9 @@ import { baseUrl } from './baseurl';
     ShopComponent,
     AddNewsComponent,
     NewsComponent,
-    HomeComponent
+    HomeComponent,
+    IntroComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
