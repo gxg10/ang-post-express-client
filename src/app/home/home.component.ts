@@ -1,7 +1,10 @@
 import { Component, OnInit, Inject, ElementRef, Input } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { UploadService } from '../services/upload.service';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+
+import { map } from 'rxjs/operators';
+
+const URL = 'http://localhost:8080/api/txtupload';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +14,12 @@ import { UploadService } from '../services/upload.service';
 })
 export class HomeComponent implements OnInit {
 
-  selectedFiles: FileList;
-  currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };
+  filestoUpload: Array<File> = [];
 
   constructor(config:NgbCarouselConfig,
   @Inject('baseUrl') private baseUrl,
-  private uploadService: UploadService) {
+  private http: HttpClient,
+  private el: ElementRef) {
     config.interval = 1000;
     config.wrap = true;
     config.keyboard = true;
@@ -28,22 +30,26 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectFile(event) {
-    this.selectedFiles = event.target.files;
-  }
-
   upload() {
-    this.progress.percentage = 0;
- 
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progress.percentage = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        console.log('File is completely uploaded!');
-      }
-    });
-    this.selectedFiles = undefined;
-  }
-
+    // locate the file element meant for the file upload.
+        const inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#photo');
+        const files: Array<File> = this.filestoUpload;
+        console.log(files);
+    // get the total amount of files attached to the file input.
+        const fileCount: number = inputEl.files.length;
+    // create a new fromdata instance
+        const formData = new FormData();
+    // check if the filecount is greater than zero, to be sure a file was selected.
+        if (fileCount > 0) { // a file was selected
+            // append the key name 'photo' with the first file in the element
+            for (let i = 0; i < fileCount; i++) {
+                formData.append('txtFileFilter', inputEl.files.item(i));
+            }
+            // call the angular http method
+            this.http
+                .post(URL, formData).pipe(map((res:any) => res)).subscribe(
+                 files=> console.log('files',files));
+            this.filestoUpload = undefined;
+          }
+       }
 }
