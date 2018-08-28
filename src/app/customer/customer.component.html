@@ -1,4 +1,6 @@
+<div class="container">
 <h5>All Customers</h5>
 <div *ngFor="let cust of customers">
   <a [routerLink]="['/customers', cust.id]" style="color:black"><span class="badge badge-success">{{cust.id}}</span> -> {{ cust.firstname }}</a>
+</div>
 </div>

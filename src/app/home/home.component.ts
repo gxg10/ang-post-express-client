@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, Inject, ElementRef } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 
