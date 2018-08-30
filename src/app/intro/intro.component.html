@@ -9,23 +9,11 @@
         <div class="col-sm-4 news mat-elevation-z8">
                 <table mat-table [dataSource]="stiri">
                         <ng-container matColumnDef="titlu">
-                            <th mat-header-cell *matHeaderCellDef> Titlu </th>
+                            <th width="50%" mat-header-cell *matHeaderCellDef> Titlu </th>
                             <td mat-cell *matCellDef="let element"> {{element.titlu}} </td>
                         </ng-container>
-                        <ng-container matColumnDef="continut">
-                            <th mat-header-cell *matHeaderCellDef> Continut </th>
-                            <td mat-cell *matCellDef="let element"> {{element.continut}} </td>
-                        </ng-container>
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-                        <mat-paginator #paginator [pageSize]="pageSize"
-                        [showFirstLastButtons]="true" [length]="totalSize"
-                        [pageIndex]="currentPage"
-                        [pageSizeOptions]="pageSizeOptions"
-                        (page)="pageEvent = getStiri($event)">
-
-                        </mat-paginator>
-                        
+                        <tr mat-header-row></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>                                          
                 </table>
         </div>
     
