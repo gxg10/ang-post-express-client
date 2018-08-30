@@ -21,8 +21,8 @@ export class NewsComponent implements OnInit {
   	return this.newsService.getStiri()
   			.subscribe(
   				stiri=>{
-  				console.log(stiri)
-  				this.stiri = stiri
+  				console.log(stiri);
+  				this.stiri = stiri;
   				}
   			);
   }
