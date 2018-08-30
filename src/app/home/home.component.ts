@@ -14,12 +14,22 @@ const URL = 'http://localhost:8080/api/txtupload';
 })
 export class HomeComponent implements OnInit {
 
+    allowNewServer = false;
+    serverCreationStatus = 'no server was created';
+    serverName = 'Testserver';
+    servers= ['Testserver', 'testserve 2'];
+
   filestoUpload: Array<File> = [];
 
   constructor(config:NgbCarouselConfig,
   @Inject('baseUrl') private baseUrl,
   private http: HttpClient,
   private el: ElementRef) {
+
+    setTimeout(()=>{
+        this.allowNewServer = true;
+    }, 2000);
+
     config.interval = 1000;
     config.wrap = true;
     config.keyboard = true;
@@ -29,6 +39,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onCreateServer() {
+      this.servers.push(this.serverName);
+      this.serverCreationStatus = 'Server was created! name is '
+      +this.serverName;
+    
+  }
+
+  onUpdateServerName(event: any) {
+    this.serverName = event.target.value;
+}
 
   upload() {
     // locate the file element meant for the file upload.

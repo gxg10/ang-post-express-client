@@ -1,31 +1,50 @@
 <div class="container">
-<img src="{{baseUrl}}/images/pic.png">
-<ngb-carousel>
-        <ng-template ngbSlide>
-          <img src="{{baseUrl}}/images/carousel/img1.png" alt="Random first slide" class="car">
-          <div class="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+  <div class="row">
+      <ui-carousel #uiCarousel [infinite]="true" [fade]="true" [speed]="300"
+      [arrows]="true" height="500px" width="1200px">
+         <ui-carousel-item>
+             <img src="./assets/images/img1.png" alt="" draggable="false">
+         </ui-carousel-item>
+         <ui-carousel-item>
+             <img src="./assets/images/img2.png" alt="" draggable="false">
+         </ui-carousel-item>
+         <ui-carousel-item>
+             <img src="./assets/images/img3.png" alt="" draggable="false">
+         </ui-carousel-item>
+        </ui-carousel>
+  </div>
+  <div class="row mid">
+      <div class="col-sm-8 caseta">
+        prima coloana
+      </div>
+      <div class="col-sm-4 news">
+          <input id="photo" type="file" />
+          <!-- button to trigger the file upload when submitted -->
+          <button type="button" class="btn btn-success btn-s" (click)="upload()" [disabled]="!filestoUpload">
+          Upload
+          </button>
+        </div>
+  
+    </div>
+    <div class="row">
+      
+      <div class="col-sm despre">
+          <label>server name</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="serverName">
+        <!--  <p>{{serverName}}</p>-->
+        <button class="btn btn-primary" 
+        (click)="onCreateServer()" [disabled]="!allowNewServer">
+          Add server</button>
+        <!--<p>{{serverCreationStatus}}</p>-->
+        <p *ngFor="let server of servers">{{server}}</p>
+      </div>
+      <div class="col-sm tranzactii">
+        a 2la coloana
+        </div>
+        <div class="col-sm contact">
+          a 3a coloana
           </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <img src="{{baseUrl}}/images/carousel/img5.png" alt="Random second slide" class="car">
-          <div class="carousel-caption">
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <img src="{{baseUrl}}/images/carousel/img6.png" alt="Random third slide" class="car">
-          <div class="carousel-caption">
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </div>
-        </ng-template>
-</ngb-carousel>
-<input id="photo" type="file" />
-<!-- button to trigger the file upload when submitted -->
-<button type="button" class="btn btn-success btn-s" (click)="upload()" [disabled]="!filestoUpload">
-Upload
-</button>
+    </div>
+    
 </div>

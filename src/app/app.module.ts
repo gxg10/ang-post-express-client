@@ -30,6 +30,10 @@ import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+import { UICarouselModule } from "ui-carousel";
+import { FooterComponent } from './footer/footer.component';
+import { RedColorDirective } from './redcolor';
+import { RedColor2Directive } from './red-color2.directive';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     NewsComponent,
     HomeComponent,
     IntroComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    RedColorDirective,
+    RedColor2Directive
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     NgbModule,
     MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
     MatSortModule, MatTableModule, BrowserAnimationsModule, MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule, UICarouselModule
   ],
   providers: [{ provide: 'baseUrl', useValue: baseUrl }],
   bootstrap: [AppComponent]
