@@ -5,6 +5,7 @@ import { HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 const URL = 'http://localhost:8080/api/txtupload';
+const baseUrl = 'http://localhost:8080';
 
 @Component({
   selector: 'app-home',

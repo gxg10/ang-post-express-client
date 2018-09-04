@@ -32,8 +32,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { UICarouselModule } from "ui-carousel";
 import { FooterComponent } from './footer/footer.component';
-import { RedColorDirective } from './redcolor';
-import { RedColor2Directive } from './red-color2.directive';
 
 @NgModule({
   declarations: [
@@ -48,8 +46,6 @@ import { RedColor2Directive } from './red-color2.directive';
     IntroComponent,
     HeaderComponent,
     FooterComponent,
-    RedColorDirective,
-    RedColor2Directive
   ],
   imports: [
     BrowserModule,
