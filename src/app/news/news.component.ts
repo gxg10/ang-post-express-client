@@ -17,13 +17,24 @@ export class NewsComponent implements OnInit {
   this.getStiri();
   }
 
+  // old style
   getStiri() {
-  	return this.newsService.getStiri()
-  			.subscribe(
-  				stiri=>{
-  				console.log(stiri);
-  				this.stiri = stiri;
-  				}
-  			);
+  return this.newsService.getStiri()
+  .subscribe(
+  stiri=> {
+  console.log(stiri);
+  this.stiri = stiri;
+  }
+);
+  }
+
+  // new style - udemy
+  getnews() {
+    return this.newsService.getnews()
+    .subscribe(
+      (stiri: any) => {
+        this.stiri = stiri;
+      }
+    );
   }
 }

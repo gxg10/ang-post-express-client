@@ -20,7 +20,13 @@ export class NewsService {
   return this.http.post<Stiri>(this.baseurl,stire, httpOptions)
   }
 
+  // old style 
   getStiri(): Observable<Stiri[]> {
   	return this.http.get<Stiri[]>(this.baseurl)
   }
-}
+
+  // new style - udemy
+  getnews() {
+    return this.http.get(this.baseurl);
+      }
+  }
