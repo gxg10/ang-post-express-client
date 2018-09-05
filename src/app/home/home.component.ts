@@ -5,7 +5,6 @@ import { HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 const URL = 'http://localhost:8080/api/txtupload';
-const baseUrl = 'http://localhost:8080';
 
 @Component({
   selector: 'app-home',
@@ -15,21 +14,12 @@ const baseUrl = 'http://localhost:8080';
 })
 export class HomeComponent implements OnInit {
 
-    allowNewServer = false;
-    serverCreationStatus = 'no server was created';
-    serverName = 'Testserver';
-    servers= ['Testserver', 'testserve 2'];
-
   filestoUpload: Array<File> = [];
 
   constructor(config:NgbCarouselConfig,
   @Inject('baseUrl') private baseUrl,
   private http: HttpClient,
   private el: ElementRef) {
-
-    setTimeout(()=>{
-        this.allowNewServer = true;
-    }, 2000);
 
     config.interval = 1000;
     config.wrap = true;
@@ -40,17 +30,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onCreateServer() {
-      this.servers.push(this.serverName);
-      this.serverCreationStatus = 'Server was created! name is '
-      +this.serverName;
-    
-  }
-
-  onUpdateServerName(event: any) {
-    this.serverName = event.target.value;
-}
 
   upload() {
     // locate the file element meant for the file upload.
@@ -70,7 +49,9 @@ export class HomeComponent implements OnInit {
             // call the angular http method
             this.http
                 .post(URL, formData).pipe(map((res:any) => res)).subscribe(
-                 files=> console.log('files',files));
+                 (res) => {
+                     return console.log('files', res);
+                 });
             this.filestoUpload = undefined;
           }
        }
